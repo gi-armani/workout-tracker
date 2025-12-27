@@ -1,0 +1,95 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-nav {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.nav-button {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #646cff;
+  background: transparent;
+  color: #646cff;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.nav-button:hover {
+  background: #646cff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-button.active {
+  background: #646cff;
+  color: white;
+}
+
+.nav-button:focus {
+  outline: 2px solid #646cff;
+  outline-offset: 2px;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+  
+  .app-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .nav-button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.25rem;
+  }
+  
+  .app-nav {
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-button {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+}

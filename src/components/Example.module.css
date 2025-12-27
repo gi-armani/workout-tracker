@@ -1,0 +1,19 @@
+/* Example CSS Module file to demonstrate CSS Modules setup */
+.container {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.4;
+}
