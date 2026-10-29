@@ -99,6 +99,16 @@ export const CalendarView: React.FC<CalendarViewProps> = memo(({ onRegisterClick
     return `${currentYear}-${month}-${dayStr}`;
   };
 
+  // Check if a given day is today (matching day, displayed month and year)
+  const isToday = (day: number) => {
+    const today = new Date();
+    return (
+      day === today.getDate() &&
+      currentMonth === today.getMonth() &&
+      currentYear === today.getFullYear()
+    );
+  };
+
   // Check if a date has workouts with error handling
   const hasWorkouts = (day: number) => {
     try {
@@ -189,6 +199,8 @@ export const CalendarView: React.FC<CalendarViewProps> = memo(({ onRegisterClick
                 day ? styles.validDay : styles.emptyDay
               } ${
                 day && hasWorkouts(day) ? styles.hasWorkouts : ''
+              } ${
+                day && isToday(day) ? styles.today : ''
               }`}
             >
               {day && (

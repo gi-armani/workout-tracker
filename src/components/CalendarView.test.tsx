@@ -237,4 +237,31 @@ describe('CalendarView', () => {
       expect(screen.queryByText('Yoga')).not.toBeInTheDocument();
     });
   });
+
+  describe('Today Highlighting', () => {
+    it('highlights the current date when viewing the current month', () => {
+      render(<CalendarView />);
+
+      const today = new Date();
+      const todayCell = screen
+        .getByText(today.getDate().toString())
+        .closest('div');
+
+      expect(todayCell).toBeInTheDocument();
+      // The today cell should have a class applied (CSS modules hashes names,
+      // so assert on the presence of a "today" class token).
+      expect(todayCell?.className).toMatch(/today/i);
+    });
+
+    it('does not highlight any day as today when viewing a different month', () => {
+      const { container } = render(<CalendarView />);
+
+      // Navigate to next month, where "today" should not be present.
+      const nextButton = screen.getByRole('button', { name: /next month/i });
+      fireEvent.click(nextButton);
+
+      const todayCells = container.querySelectorAll('[class*="today"]');
+      expect(todayCells.length).toBe(0);
+    });
+  });
 });
